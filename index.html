@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <p>您的账户余额是
+        <span id="amount">$$$amount$$$</span>
+    </p>
+    <form action="/pay" method="post" target="result">
+        <input type="submit" value="付款">
+    </form>
+    <iframe name="result" src="about:blank" frameborder="0" height="200px"></iframe>
+</body>
+</html>
