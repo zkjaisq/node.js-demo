@@ -39,12 +39,10 @@ var server = http.createServer(function (request, response) {
   } else if(path === '/pay'){
     var amount =fs.readFileSync('./amount','utf8')
     var newAmount = amount - 1
-    if(Math.random() > 0.5){
       fs.writeFileSync('./amount',newAmount)
-    response.write('success')
-    }else{
-      response.write('failse')
-    }
+      response.setHeader('Content-Type', 'applycation/script')
+      response.statusCode = 200
+      response.write(`${query.callback}.call(undefined,'success')`)//得到查询参数
     response.end()
   }
   else{

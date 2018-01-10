@@ -7,14 +7,69 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>首页</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 </head>
+
 <body>
     <p>您的账户余额是
         <span id="amount">$$$amount$$$</span>
     </p>
-    <form action="/pay" method="post" target="result">
-        <input type="submit" value="付款">
-    </form>
-    <iframe name="result" src="about:blank" frameborder="0" height="200px"></iframe>
+    <button id="button">付款</button>
 </body>
+<script>
+
+    button.addEventListener('click', (x) => {
+
+        $.ajax({
+            url: "http://jack.com:8002/pay",
+
+           
+
+            // Tell jQuery we're expecting JSONP
+            dataType: "jsonp",
+
+            
+           
+
+            // Work with the response
+            success: function (response) {
+               if(response === "success"){
+                alert(`${response}`)
+                amount.innerText = amount.innerText - 1 
+               }else{
+                alert('failse')
+               }
+            }
+        });
+        /*let script= document.createElement('script')
+        let functionName = 'frank' + parseInt(Math.random()*10000,10)
+        window[functionName] =(result)=>{
+            if(result === 'success'){
+                alert(`${result}`)
+                amount.innerText  = amount.innerText - 1
+            }else{
+                alert(faile)
+            }
+        }//因为functionName是一个随机数，不确定的因素，所以不能使用functionName.xxx   只能使用[]
+        script.src = 'http://jack.com:8002/pay?callback=' + functionName//添加查询参数，使得可以知道调用的函数是xxx
+        document.body.appendChild(script)
+        script.onload = function(e){
+            e.currentTarget.remove()
+            script.onerror = function(e){
+            e.currentTarget.remove()
+            alert('打钱失败')
+        }
+        }
+        
+       /* image.src = '/pay'
+        image.onload=function(){
+            alert('打钱成功')
+            amount.innerText = amount.innerText - 1
+        }
+        image.onerror =function(){
+            alert('打钱失败failse')
+        }*/
+    })
+</script>
+
 </html>
