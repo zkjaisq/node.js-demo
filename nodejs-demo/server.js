@@ -32,15 +32,14 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type','text/css;charset=utf8')
     response.write(string)
     response.end()
-  }else if(path === '/main.js'){
-    let string = fs.readFileSync('./main.js','utf8')
+  }else if(path === '/newmain.js'){
+    let string = fs.readFileSync('./newmain.js','utf8')
     response.setHeader('Content-type','application/javascript;charset =utf-8')
     response.write(string)
     response.end()
-  }else if(path === '/kejia' && method === 'GET'){
+  }else if(path === '/kejia'){
     response.statusCode = 200
     response.setHeader('Content-Type','text/XML;charset=utf-8')
-    response.setHeader('Access-Control-Allow-Origin','http://ww.baidu.com')
     response.write(`
     {
       "note":{
@@ -51,11 +50,6 @@ var server = http.createServer(function(request, response){
       }
     }
     `)
-    response.end()
-  }else{
-    response.statuscode = 400
-    response.setHeader('Content-Type','text/html;charset = utf-8')
-    response.write('呜呜呜呜')
     response.end()
   }
 
