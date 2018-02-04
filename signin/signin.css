@@ -1,0 +1,28 @@
+*{padding: 0;margin: 0;}
+*{box-sizing: border-box;}
+li{list-style: none;}
+
+body{height: 100vh;display: flex;justify-content: center;align-items: center;flex-direction: column;border: 1px solid red;}
+.sign-wrapper{border: 1px solid red;text-align: center;padding: 20px;min-width:450px;
+}
+.sign-wrapper ul {text-align: justify;
+}
+.sign-wrapper ul >li{padding: 10px;}
+.sign-wrapper ul >li >label{
+    display: inline-block;
+    width: 5em;
+    text-align: justify;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+}
+.sign-wrapper ul >li >label::after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+.sign-wrapper .submit{
+    width: 50%;
+    padding: 20px;
+}
+
